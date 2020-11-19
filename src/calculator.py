@@ -1,5 +1,6 @@
 TYPE_ERROR = 'is not a number'
 SIGN_ERROR = 'Operation sign is wrong'
+ZERO_ERROR = 'Delenie na 0 zapresheno'
 
 
 def validate(number1, operation, number2):
@@ -18,22 +19,27 @@ def validate(number1, operation, number2):
     print(SIGN_ERROR)
     return False
 
+  if number2 == 0:
+    print(ZERO_ERROR)
+    return False
+
   return True
 
 
 def calc(number1, operation, number2):
-  is_param_valid = validate(number1, operation, number2)
-  if operation == "+" and is_param_valid == True:
-    result = number1 + number2
-  elif operation == "-" and is_param_valid == True:
-    result = number1 - number2
-  elif operation == "*" and is_param_valid == True:
-    result = number1 * number2
-  elif operation == "/" and number2 != 0 and is_param_valid == True:
-    result = number1 / number2
+  is_validate = validate(number1, operation, number2)
+  if is_validate != True:
+    print('Validate is failed')
+    return
+
+  if operation == "+":
+    return number1 + number2
+  elif operation == "-":
+    return number1 - number2
+  elif operation == "*":
+    return number1 * number2
   else:
-    result = "Everything's wrong!"
-  return result
+    return number1 / number2
 
 result = calc(10, '/', 100)
 
