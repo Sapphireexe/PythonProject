@@ -1,6 +1,7 @@
 TYPE_ERROR = 'is not a number'
 SIGN_ERROR = 'Operation sign is wrong'
 ZERO_ERROR = 'Delenie na 0 zapresheno'
+VALID_FAILED = 'Validate is failed'
 
 
 def validate(number1, operation, number2):
@@ -29,7 +30,7 @@ def validate(number1, operation, number2):
 def calc(number1, operation, number2):
   is_validate = validate(number1, operation, number2)
   if is_validate != True:
-    print('Validate is failed')
+    print(VALID_FAILED)
     return
 
   if operation == "+":
