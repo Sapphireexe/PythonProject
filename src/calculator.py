@@ -42,7 +42,7 @@ def calc(number1, operation, number2):
   else:
     return number1 / number2
 
-result = calc(10, '/', 100)
 
-print(result)
+result = calc(10, '/', 0)
+print(f'Result of operation is {result}')
 
