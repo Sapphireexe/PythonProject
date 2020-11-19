@@ -1,32 +1,25 @@
-# Napisat' kalkulator
+TYPE_ERROR = 'is not a number'
+SIGN_ERROR = 'Operation sign is wrong'
+
 
 def validate(number1, operation, number2):
   type_number1 = type(number1)
   type_number2 = type(number2)
-  if type_number1 == int or type_number1 == float:
-    type_number1 = True
-  else:
-    print('Number 1 is not a number...')
-    type_number1 = False
 
-  if type_number2 == int or type_number2 == float:
-    type_number2 = True
-  else:
-    print('Number 2 is not a number...')
-    type_number2 = False
+  if type_number1 != int and type_number1 != float:
+    print(f"{number1} {TYPE_ERROR}")
+    return False
 
-  if operation == '+' or operation == '-' or operation == '*' or operation == '/':
-    operation_sign = True
-  else:
-    print('Operation sign is wrong...')
-    operation_sign = False
+  if type_number2 != int and type_number2 != float:
+    print(f"{number2} {TYPE_ERROR}")
+    return False
 
-  if type_number1 == True and type_number2 == True and operation_sign == True:
-    is_param_valid = True
-  else:
-    print('Wrong input data...')
-    is_param_valid = False
-  return is_param_valid
+  if operation != '+' and operation != '-' and operation != '*' and operation != '/':
+    print(SIGN_ERROR)
+    return False
+
+  return True
+
 
 def calc(number1, operation, number2):
   is_param_valid = validate(number1, operation, number2)
