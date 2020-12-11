@@ -20,7 +20,7 @@ def validate(number1, operation, number2):
     print(SIGN_ERROR)
     return False
 
-  if number2 == 0:
+  if number2 == 0 and operation == '/':
     print(ZERO_ERROR)
     return False
 
@@ -43,6 +43,6 @@ def calc(number1, operation, number2):
     return number1 / number2
 
 
-result = calc(10, '/', 0)
+result = calc(10, '-', 0)
 print(f'Result of operation is {result}')
 
